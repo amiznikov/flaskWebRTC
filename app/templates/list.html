@@ -1,60 +1,30 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
-
 {% block content %}
-        {% if list %}
-                {% for key, value in list.items() %}
-                    <p> stream {{ key }} with {{ value }} <a href="{{ url_for('main.stream', stream_id=key ) }}"> here  </a> </p>
-                {% endfor %}
-        {% endif %}
 <div class="table-responsive-sm">
     <table class="table table-sm table-striped table-bordered">
-        <thead class="thead-dark" style="text-align: center">
+        <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
-               <th scope="col">Video Id</th>
-              <th scope="col">Video Url</th>
-              <th scope="col">Video Title</th>
-              <th scope="col">Video Pre-Watch</th>
-              <th scope="col">Channel Id</th>
-              <th scope="col">Channel Url</th>
-              <th scope="col">Channel Title</th>
-              <th scope="col">Duration (sec)</th>
+               <th scope="col">Исходная ссылка RTSP</th>
+              <th scope="col">Ссылка на просмотр</th>
           </tr>
         </thead>
         <tbody>
-            {% if data!= None %}
-            {% for value in data %}
-                <tr>
-                    <th scope="row"> <!-- Number -->
-                        {{ value[0] }}
-                    </th>
-                    <td> <!-- Video Id -->
-                        {{ value[1] }}
-                    </td>
-                    <td> <!-- Video Url -->
-                        <a class="nav-link" href={{ value[2] }}>link</a>
-                    </td>
-                    <td> <!-- Video Title -->
-                        {{ value[3] }}
-                    </td>
-                    <td> <!-- Video PreWatch -->
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ value[1] }}" 4frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; " allowfullscreen></iframe>
-                    </td>
-                    <td> <!-- Channel Id -->
-                        {{ value[4] }}
-                    </td>
-                    <td> <!-- Channel Url -->
-                        <a class="nav-link" href={{ value[5] }}>link</a>
-                    </td>
-                    <td> <!-- Channel Title -->
-                        {{ value[6] }}
-                    </td>
-                    <td> <!-- Video Duration -->
-                        {{ value[7] }}
-                    </td>
-                </tr>
-            {% endfor %}
+            {% if list %}
+                {% for key, value in list.items() %}
+                    <tr>
+                        <th scope="row"> <!-- Number -->
+                            {{ loop.index }}
+                        </th>
+                        <td>
+                            {{ value }}
+                        </td>
+                        <td>
+                            <a class="nav-link" href="{{ url_for('stream', stream_id=key ) }}">Ссылка</a>
+                        </td>
+                    </tr>
+                {% endfor %}
             {% endif %}
     </tbody>
     </table>
