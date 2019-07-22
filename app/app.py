@@ -50,7 +50,7 @@ def nostream():
 def stream(stream_id):
     print("stream_id is " + stream_id)
     if stream_id not in active_list.keys():
-        return  redirect(url_for('nostream'))
+        return  redirect(url_for('nostream.html'))
     else:
         return render_template('stream.html')
 
