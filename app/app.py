@@ -23,8 +23,7 @@ def index():
 def add():
     if request.method == 'POST':
         stream_url = request.form['stream_url']
-        stream_type = request.form['stream_type']
-        stream_url, stream_type = str(stream_url), str(stream_type)
+        stream_url = str(stream_url)
         if "rtsp://" in stream_url:
             stream_id = str(rnd(1000, 10000))
             while stream_id in active_list.keys():
