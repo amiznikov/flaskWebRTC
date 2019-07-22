@@ -3,7 +3,7 @@
 # from __future__ import unicode_literal
 
 from random import randrange as rnd
-from flask import Flask,render_template, request, redirect, url_for, jsonify
+from flask import Flask,render_template, request, redirect, url_for, jsonify, abort
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -40,16 +40,16 @@ def list():
     return render_template('list.html', list=active_list)
 
 
-@app.route('/nostream')
+@app.route('/nourl')
 def nostream():
-    return render_template('nostream.html')
+    return render_template('nourl.html')
 
 
 @app.route('/stream/<string:stream_id>')
 def stream(stream_id):
     print("stream_id is " + stream_id)
     if stream_id not in active_list.keys():
-        return  redirect('nostream.html')
+        return abort(404)
     else:
         return render_template('stream.html')
 
@@ -64,7 +64,7 @@ def get_stream_url():
 
 @app.errorhandler(Exception)
 def http_error_handler(error):
-    return render_template('nostream.html')
+    return render_template('nourl.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
