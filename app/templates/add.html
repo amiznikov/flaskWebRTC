@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
-
 {% block content %}
-        <!-- <form method="POST" action="/add" enctype=multipart/form-data id="stream_data">
-            <input type="text" name="stream_url" value="" placeholder="stream url">
- -->
-        <link rel="stylesheet" href="static/css/index.css">
-        <div class="container d-flex h-100">
-            <form method="POST" action="/add" enctype=multipart/form-data id="stream_data">
-            <div class="row justify-content-center align-self-center mx-auto w-75">
-                <div>
-                    <p class="h6 mx-auto"><span class="text-info" id="messageText">Await the url</span></p>
-                </div>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Ссылка на RTSP поток" aria-label="Link" aria-describedby="basic-addon2" id="urlValue">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-dark" type="button" id="sendButton" onclick="prepareUrl()">Send</button>
-                    </div>
-                    <input type="submit">
-                </div>
+<link rel="stylesheet" href="static/css/index.css">
+<form method="POST" action="/add" enctype=multipart/form-data id="send_stream">
+</form>
+<div class="container d-flex h-100">
+    <div class="row justify-content-center align-self-center mx-auto w-75">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" required placeholder="Ссылка на RTSP поток" name="stream_url" form="send_stream">
+            <div class="input-group-append">
+                <button form="send_stream" class="btn btn-outline-dark" type="submit">Отправить</button>
             </div>
-            </form>
         </div>
+        <small class="form-text text-muted">Пожалуйста, отправляйте существующий, публичный RTSP поток не требующий авторизации</small>
+    </div>
+</div>
 {% endblock %}
