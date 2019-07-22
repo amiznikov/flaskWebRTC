@@ -53,5 +53,9 @@ def get_stream_url():
     print (stream_id, stream_url)
     return jsonify({'result': stream_url})
 
+@app.errorhandler(werkzeug.exceptions.BadRequest)
+def handle_bad_request(e):
+    return 'bad request!', 400
+
 if __name__ == "__main__":
     app.run()
