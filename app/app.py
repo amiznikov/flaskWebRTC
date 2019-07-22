@@ -49,7 +49,7 @@ def nostream():
 def stream(stream_id):
     print("stream_id is " + stream_id)
     if stream_id not in active_list.keys():
-        return  redirect(url_for('nostream'))
+        return  redirect('nostream.html')
     else:
         return render_template('stream.html')
 
@@ -64,7 +64,7 @@ def get_stream_url():
 
 @app.errorhandler(Exception)
 def http_error_handler(error):
-    return 'bad request!', 400
+    return render_template('nostream.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
