@@ -45,13 +45,13 @@ def nostream():
     return render_template('nourl.html')
 
 
-@app.route('/stream/<string:stream_id>')
+@app.route('/stream/<stream_id>')
 def stream(stream_id):
-    print("stream_id is " + stream_id)
-    if stream_id not in active_list.keys():
-        return abort(404)
-    else:
+    print(stream_id, type(stream_id), stream_id in active_list)
+    if stream_id in active_list:
         return render_template('stream.html')
+    else:
+        return abort(404)
 
 
 @app.route('/get_stream_url', methods=['POST'])

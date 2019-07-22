@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <script src="{{ url_for('static', filename='bower_components/adapter.js/adapter.js') }}"></script>
+{% extends "base.html" %}
+
+{% block content %}
+        <!-- <script src="{{ url_for('static', filename='bower_components/adapter.js/adapter.js') }}"></script>
         <script src="{{ url_for('static', filename='bower_components/kurento-client/js/kurento-client.js') }}"></script>
         <script src="{{ url_for('static', filename='bower_components/kurento-utils/js/kurento-utils.js') }}"></script>
-        <script type=text/javascript src="{{ url_for('static', filename='js/index.js') }}"></script>
-    </head>
-    <body>
-        <video id="videoOutput" autoplay width="480px" height="360px" poster="{{ url_for('static', filename='img/webrtc.png') }}"></video>
-        <br />
-        <a id="start" href="#">Start</a>
-        <br/>
-        <a id="stop" href="#">Stop</a>
-    </body>
-</html>
+        <script type=text/javascript src="{{ url_for('static', filename='js/index.js') }}"></script> -->
+        <div class="container pt-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 bg-white border rounded pt-3 pb-3">
+                        <div class="row ml-3 mr-3 ">
+                            <div class="col-md-12 border rounded bg-light mb-2 pt-1 pb-1">
+                                <video id="videoOutput" autoplay width="480px" height="360px" poster="{{ url_for('static', filename='img/webrtc.png') }}"></video>
+                                <br />
+                                <a id="start" href="#">Start</a>
+                                <br/>
+                                <a id="stop" href="#">Stop</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
