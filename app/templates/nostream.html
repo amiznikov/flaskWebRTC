@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block app_content %}
+        {% if list %}
+                {% for key, value in list.items() %}
+                    <p> stream {{ key }} with {{ value }} <a href="{{ url_for('main.stream', stream_id=key ) }}"> here  </a> </p>
+                {% endfor %}
+        {% endif %}
+{% endblock %}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="{{ url_for('static', filename='bower_components/adapter.js/adapter.js') }}"></script>
+        <script src="{{ url_for('static', filename='bower_components/kurento-client/js/kurento-client.js') }}"></script>
+        <script src="{{ url_for('static', filename='bower_components/kurento-utils/js/kurento-utils.js') }}"></script>
+        <script type=text/javascript src="{{ url_for('static', filename='js/index.js') }}"></script>
+    </head>
+    <body>
+        <video id="videoOutput" autoplay width="480px" height="360px" poster="{{ url_for('static', filename='img/webrtc.png') }}"></video>
+        <br />
+        <a id="start" href="#">Start</a>
+        <br/>
+        <a id="stop" href="#">Stop</a>
+    </body>
+</html>

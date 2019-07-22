@@ -6,11 +6,16 @@ from random import randrange as rnd
 from flask import Flask,render_template, request, redirect, url_for, jsonify
 
 app = Flask(__name__)
+app.config['DEBUG'] = True
+app.config['HOST'] = '127.0.0.1'
+app.config['PORT'] = '5000'
+app.config['ENV'] = 'development'
+
+active_list = {}
 
 @app.route('/')
 @app.route('/index')
 def index():
-    app.gQueue.put('Same entery to "http://127.0.0.1:5000/index"')
     return render_template('index.html')
 
 
@@ -20,38 +25,43 @@ def add():
         stream_url = request.form['stream_url']
         stream_type = request.form['stream_type']
         stream_url, stream_type = str(stream_url), str(stream_type)
-        print(stream_url, stream_type)
-        # list_dict = { str(rnd(1000, 10000)) : stream_url}
         if "rtsp://" in stream_url:
             stream_id = str(rnd(1000, 10000))
-            while stream_id in app.active_list.keys():
+            while stream_id in active_list.keys():
                 stream_id = str(rnd(1000, 10000))
             else:
-                app.active_list[stream_id] = stream_url
-            # app.active_list.append(list_dict)
-        print(app.active_list)
-        return redirect(url_for('main.list'))
+                active_list[stream_id] = stream_url
+        return redirect(url_for('list'))
     else:
-        return render_template('add.html', options=['rtsp'])
+        return render_template('add.html')
 
 
 @app.route('/list')
 def list():
-    return render_template('list.html', list=app.active_list)
+    return render_template('list.html', list=active_list)
+
+
+@app.route('/nostream')
+def nostream():
+    return render_template('nostream.html')
+
 
 @app.route('/stream/<string:stream_id>')
 def stream(stream_id):
     print("stream_id is " + stream_id)
-    return render_template('stream.html')
+    if stream_id not in active_list.keys():
+        return  redirect(url_for('nostream'))
+    else:
+        return render_template('stream.html')
 
 
 @app.route('/get_stream_url', methods=['POST'])
 def get_stream_url():
     stream_link = request.get_json().get('stream_link')
     stream_id = stream_link[stream_link.rfind('/')+1:]
-    stream_url = app.active_list.get(stream_id)
+    stream_url = active_list.get(stream_id)
     print (stream_id, stream_url)
     return jsonify({'result': stream_url})
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block app_content %}
+        <form method="POST" action="/add" enctype=multipart/form-data id="stream_data">
+            <input type="text" name="stream_url" value="" placeholder="stream url">
+            <input type="submit">
+        </form>
+{% endblock %}
