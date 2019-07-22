@@ -1,9 +1,25 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
 
-{% block app_content %}
-        <form method="POST" action="/add" enctype=multipart/form-data id="stream_data">
+{% block content %}
+        <!-- <form method="POST" action="/add" enctype=multipart/form-data id="stream_data">
             <input type="text" name="stream_url" value="" placeholder="stream url">
-            <input type="submit">
-        </form>
+ -->
+        <link rel="stylesheet" href="static/css/index.css">
+        <div class="container d-flex h-100">
+            <form method="POST" action="/add" enctype=multipart/form-data id="stream_data">
+            <div class="row justify-content-center align-self-center mx-auto w-75">
+                <div>
+                    <p class="h6 mx-auto"><span class="text-info" id="messageText">Await the url</span></p>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Ссылка на RTSP поток" aria-label="Link" aria-describedby="basic-addon2" id="urlValue">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-dark" type="button" id="sendButton" onclick="prepareUrl()">Send</button>
+                    </div>
+                    <input type="submit">
+                </div>
+            </div>
+            </form>
+        </div>
 {% endblock %}
