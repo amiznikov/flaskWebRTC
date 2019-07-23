@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
 
-{% block app_content %}
+{% block content %}
     <div class="container pt-1">
         <div class="container">
             <div class="row">
                 <div class="col-12 bg-white border rounded pt-3 pb-3">
                     <div class="row ml-3 mr-3 ">
                         <div class="col-md-12 border rounded bg-light mb-2 pt-1 pb-1">
+                            <div class="card">
+                                <div class="card-header">
+                                Суть
+                                </div>
+                                <div class="card-body">
+                                    <blockquote class="blockquote mb-0">
+                                        <p>Это MVP приложение демонстрирующие работу RTSP->WebRTC с помощью открытого проекта <a href='https://www.kurento.org/' target="_blank"> Kurento</a></p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <div>
+                                &nbsp;
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                Функционал
+                                </div>
+                                <div class="card-body">
+                                    <blockquote class="blockquote mb-0">
+                                        <p>Основные функции: <a href='/add'>"Добавить источник"</a> и <a href='/list'>"Список источников"</a></p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <div>
+                                &nbsp;
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                Принцип работы
+                                </div>
+                                <div class="card-body">
+                                    <blockquote class="blockquote mb-0">
+                                        <p>1. Перейдите по ссылке <a href='/add'>"Добавить источник"</a> и добавьте источник RTSP потока</p>
+                                        <footer class="blockquote-footer">По умолчанию доступны два потока, которые вы можете просмотреть уже сейчас, найдя их в  <a href='/list'>"Список источников"</a></footer>
+                                         &nbsp;
+                                        <p>2. Если поток корректен вас перенаправит на  <a href='/list'>"Список источников"</a> где в третей колонке вы может перейти по ссылке, для просмотра потока по протоколу WebRTC</p>
+                                        &nbsp;
+                                       <p>3. На странице просмотра потока, нажмите кнопку "Start" что бы начать проигрывание потока и "Stop" что бы остановить проигрывание.</p>
+                                       <footer class="blockquote-footer">Проигрывание начнётся не сразу, так как, поток преобразуется из RTSP в понятный браузеру формат, а затем устанавливается соединение по WebSocket</footer>
+                                    </blockquote>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
