@@ -62,8 +62,7 @@ def get_stream_url():
     stream_link = request.get_json().get('stream_link')
     stream_id = stream_link[stream_link.rfind('/')+1:]
     stream_url = active_list.get(stream_id)
-    print (stream_id, stream_url)
-    return jsonify({'result': stream_url})
+    return jsonify(result=stream_url)
 
 @app.errorhandler(Exception)
 def http_error_handler(error):
