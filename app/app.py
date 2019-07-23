@@ -71,4 +71,4 @@ def http_error_handler(error):
 if __name__ == "__main__":
     generate_id('rtsp://b1.dnsdojo.com:1935/live/sys3.stream')
     generate_id('rtsp://184.72.239.149/vod/mp4:BigBuckBunny_115k.mov')
-    app.run(debug=True)
+    app.run()
