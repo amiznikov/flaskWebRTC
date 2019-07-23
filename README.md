@@ -7,11 +7,11 @@
 1. Установка системных зависимостей
   - Для dev
   ```
-  sudo apt-get install python3 python3-pip python3-dev python3-venv
+  sudo apt-get install python3 python3-pip python3-dev python3-venv python3-setuptools build-essential libssl-dev libffi-dev
   ```
   - Для production
   ```
-  sudo apt-get install nginx python3 python3-pip python3-dev python3-venv uwsgi uwsgi-plugin-python3
+  sudo apt-get install python3 python3-pip python3-dev python3-venv python3-setuptools build-essential libssl-dev libffi-dev uwsgi uwsgi-plugin-python3 nginx
   ```
 2. Установка Kurento
 
