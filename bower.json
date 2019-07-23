@@ -1,0 +1,27 @@
+{
+  "name": "flaskwebrtc",
+  "version": "0.1",
+  "description": "Example of how to RTSP-WebRTC with Flask, based on Kurento, Kurento-Media-Server",
+  "authors": [
+    "4rtcrt"
+  ],
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "LGPL",
+  "homepage": "https://github.com/4rtcrt",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "adapter.js": "v0.2.9",
+    "kurento-client": "master",
+    "kurento-utils": "master"
+  }
+}
