@@ -9,6 +9,10 @@ from config import Flask_Config
 app = Flask(__name__)
 app.config.from_object(Flask_Config())
 
+def get_app():
+    app = Flask(__name__)
+    app.config.from_object(Flask_Config())
+    return app
 
 active_list = {}
 
