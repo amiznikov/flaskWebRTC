@@ -7,11 +7,11 @@
 1. Установка системных зависимостей
   - Для dev
   ```
-  sudo apt-get install nginx python3 python3-pip python3-venv
+  sudo apt-get install python3 python3-pip python3-dev python3-venv
   ```
   - Для production
   ```
-  
+  sudo apt-get install nginx python3 python3-pip python3-dev python3-venv uwsgi uwsgi-plugin-python3
   ```
 2. Установка Kurento
 
@@ -46,7 +46,7 @@ sudo apt-get update \
 3. Разворачивание проекта flaskWebRTC
 
  - Для dev
- 
+
 ```
  git clone git@github.com:4rtcrt/flaskWebRTC.git
  cd flaskWebRTC
@@ -66,7 +66,7 @@ sudo apt-get update \
  python3 -m pip install -r requirements.txt
  python3 app/app.py
  ```
- 
+
 4. Различные команды
  - Остановка и запуска Kurento
 ```
