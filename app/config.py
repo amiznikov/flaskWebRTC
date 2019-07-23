@@ -8,7 +8,7 @@ class Flask_Config():
     basedir = os.path.abspath(os.path.dirname(__file__))
     SECRET_KEY = os.environ.get('SECRET_KEY') or os.urandom(24)
     APPLICATION_ROOT = os.environ.get('APPLICATION_ROOT') or '/'
-    HOST = '127.0.0.1'
+    HOST = '0.0.0.0'
     PORT = '5000'
     if os.environ.get('PRODUCTION'):
         DEBUG = False
