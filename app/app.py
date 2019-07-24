@@ -4,6 +4,7 @@
 
 from random import randrange as rnd
 from flask import Flask,render_template, request, redirect, url_for, jsonify, abort
+from werkzeug.contrib.fixers import ProxyFix
 from config import Flask_Config
 
 app = Flask(__name__)
@@ -13,6 +14,7 @@ app.config.from_object(Flask_Config())
 active_list = {}
 
 
+
 def generate_id(stream_url):
     stream_id = str(rnd(1000, 10000))
     while stream_id in active_list:
@@ -20,6 +22,8 @@ def generate_id(stream_url):
     else:
         active_list[stream_id] = stream_url
 
+generate_id('rtsp://b1.dnsdojo.com:1935/live/sys3.stream')
+generate_id('rtsp://184.72.239.149/vod/mp4:BigBuckBunny_115k.mov')
 
 @app.route('/')
 @app.route('/index')
@@ -68,7 +72,6 @@ def get_stream_url():
 def http_error_handler(error):
     return render_template('nourl.html')
 
+app.wsgi_app = ProxyFix(app.wsgi_app)
 if __name__ == "__main__":
-    generate_id('rtsp://b1.dnsdojo.com:1935/live/sys3.stream')
-    generate_id('rtsp://184.72.239.149/vod/mp4:BigBuckBunny_115k.mov')
     app.run()
