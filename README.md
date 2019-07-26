@@ -1,6 +1,7 @@
 # flaskWebRTC
 
 ## Простой пример реализации RTSP-WebRTC, с помощью Flask, на базе [Kurento](https://www.kurento.org), Kurento-Media-Server
+## Работособность в текущей интерации напрямую зависит от Kurento, которая в свою очередь требует либо Ubuntu 16 либо Ubuntu 18
 
 ### Установка
 
