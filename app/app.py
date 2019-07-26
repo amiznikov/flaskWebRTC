@@ -36,7 +36,6 @@ def add():
     if request.method == 'POST':
         stream_url = request.form['stream_url']
         stream_url = str(stream_url)
-        print(stream_url in active_list.values())
         if "rtsp://" in stream_url and stream_url not in active_list.values():
             generate_id(stream_url)
         return redirect(url_for('list'))
@@ -69,10 +68,10 @@ def get_stream_url():
     stream_url = active_list.get(stream_id)
     return jsonify(result=stream_url)
 
-# @app.errorhandler(Exception)
-# def http_error_handler(error):
-#     return render_template('nourl.html')
+@app.errorhandler(Exception)
+def http_error_handler(error):
+    return render_template('nourl.html')
 
-# app.wsgi_app = ProxyFix(app.wsgi_app)
+app.wsgi_app = ProxyFix(app.wsgi_app)
 if __name__ == "__main__":
     app.run()
