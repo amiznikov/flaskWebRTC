@@ -1,0 +1,3 @@
+0:18:47.942566254     1 0x7f9d70239ed0 INFO    KurentoServerMethods ServerMethods.cpp:814:ping: WebSocket Ping/Pong with sessionId d7a1c261-3e05-4859-8e4a-dc104f6f0a78
+0:18:51.066640089     1 0x7f9d682a1a80 WARN          dtlsconnection gstdtlsconnection.c:312:handle_timeout:<GstDtlsConnection@0x7f9d7c00be00> handling timeout failed
+0:19:00.745278061     1 0x7f9d701e7900 INFO    KurentoWebSocketTransport WebSocketTransport.cpp:296:keepAliveSessions: Keep alive afb4cdec-3aaf-4a16-8192-34ed3da5cebe
