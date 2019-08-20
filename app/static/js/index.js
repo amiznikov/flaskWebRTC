@@ -57,7 +57,7 @@ window.addEventListener('load', function(){
     		kurentoClient.create("MediaPipeline", function(error, p) {
     			if(error) return onError(error);
     			pipeline = p;
-    			pipeline.create("PlayerEndpoint", {uri: address}, function(error, player){
+                pipeline.create("PlayerEndpoint", {networkCache: 0, uri: address.value}, function(error, player){
     			  if(error) return onError(error);
 
     			  pipeline.create("WebRtcEndpoint", function(error, webRtcEndpoint){
